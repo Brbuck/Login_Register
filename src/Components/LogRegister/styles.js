@@ -33,11 +33,15 @@ const opacity = keyframes`
 `;
 
 export const Container = styled.div`
-    width: 100vw;
+   /*  width: 100vw;
     height: 100vh;
 
     display: flex;
     align-items: center;
+
+    @media screen and (max-width: 740px){
+        flex-direction: column;
+    } */
 `;
 
 export const Login = styled.div`
@@ -58,6 +62,12 @@ export const Login = styled.div`
     animation: ${({click})=> (click ? Log : null)};
     animation-duration: 1.3s;
     animation-timing-function: ease-in;
+
+    @media screen and (max-width: 740px){
+        width: 100%;
+        height: 35vh;
+        left: 0;
+    }
 `;
 
 export const Register = styled.div`
@@ -86,6 +96,12 @@ export const Register = styled.div`
         animation-timing-function: ease-in;
     }
     
+    @media screen and (max-width: 740px){
+        width: 100%;
+        height: 65vh;
+        left: 0;
+        top: 35vh;
+    }
     
 `;
 
@@ -108,12 +124,28 @@ export const Content =styled.div`
         font-size: 3rem;
         text-transform: capitalize;
         margin-bottom: 30px;
+
+        @media screen and (max-width: 930px){
+            font-size: 2.3rem;
+        }
+
+        @media screen and (max-width: 420px){
+            font-size: 2rem;
+        }
         
     }
 
     span{
         font-size: 1.3rem;
         margin-bottom: 20px;
+
+        @media screen and (max-width: 930px){
+            font-size: 1.1rem;
+        }
+
+        @media screen and (max-width: 420px){
+            font-size: 1rem;
+        }
     }
 `
 
@@ -142,8 +174,12 @@ export const Input = styled.input`
 export const SignInButton = styled(Button)`
     background-color: transparent;
     border: 2px solid #111;
-    
 
+    @media screen and (max-width: 420px){
+        width: 160px;
+        height: 40px;
+    }
+    
     &:hover{
         background-color: rgba(0,0,0,0.9);
         color: #ff8e1f;
@@ -154,6 +190,11 @@ export const SignInButton = styled(Button)`
 
 export const SignUpButton = styled(Button)`
     background-color: #ffe641;
+
+    @media screen and (max-width: 420px){
+        width: 160px;
+        height: 40px;
+    }
 
     &:hover{
         filter: opacity(0.8);
