@@ -1,4 +1,36 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import Button from '../Button'
+
+const slide = keyframes`  
+  from {
+    transform: translateX(-500px); 
+       
+    }
+  to {transform: translateX(0);}
+  
+`;
+
+const Log = keyframes`  
+    25% {
+		opacity: 0;
+	}
+	
+	75% {
+		opacity: 1;
+	}
+  
+`;
+
+const opacity = keyframes`  
+    0% {
+		opacity: 0;
+	}
+	
+	75% {
+		opacity: 1;
+	}
+  
+`;
 
 export const Container = styled.div`
     width: 100vw;
@@ -20,8 +52,12 @@ export const Login = styled.div`
 
     position: absolute;
     left: ${({click})=> (click ? '65%' : '0')};
-    z-index: 1;
-    transition: 0.3s; 
+    z-index: 3;
+    transition: 0.8s; 
+
+    animation: ${({click})=> (click ? Log : null)};
+    animation-duration: 1.3s;
+    animation-timing-function: ease-in;
 `;
 
 export const Register = styled.div`
@@ -37,8 +73,20 @@ export const Register = styled.div`
 
     position: absolute;
     right: ${({click})=> (click ? '35%' : '0')};
-    z-index: 2;
-    transition: 0.3s;
+    z-index: 1;
+    transition: 0.8s;
+
+    animation: ${({click})=> (click ? slide : null)};
+    animation-duration: 0.7s;
+    animation-timing-function: ease-in;
+
+    &.actives{
+        animation: ${opacity};
+        animation-duration: 0.7s;
+        animation-timing-function: ease-in;
+    }
+    
+    
 `;
 
 export const Content =styled.div`
@@ -49,10 +97,18 @@ export const Content =styled.div`
     text-align: center;
     padding: 10px;
 
+    &.active{
+        animation: ${slide};
+        animation-duration: 0.7s;
+        animation-timing-function: ease-in;
+    }
+ 
+
     h1{
         font-size: 3rem;
         text-transform: capitalize;
         margin-bottom: 30px;
+        
     }
 
     span{
@@ -64,6 +120,7 @@ export const Content =styled.div`
 export const ContentRegister = styled(Content)`
     width: 100%;
     color: #fff;
+
    
 `;
 
@@ -81,3 +138,24 @@ export const Input = styled.input`
     font-size: 1.1rem;
     border-radius: 5px;
 `;
+
+export const SignInButton = styled(Button)`
+    background-color: transparent;
+    border: 2px solid #111;
+    
+
+    &:hover{
+        background-color: rgba(0,0,0,0.9);
+        color: #ff8e1f;
+        
+    }
+
+`
+
+export const SignUpButton = styled(Button)`
+    background-color: #ffe641;
+
+    &:hover{
+        filter: opacity(0.8);
+    }
+`
