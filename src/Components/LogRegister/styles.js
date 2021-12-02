@@ -105,7 +105,7 @@ export const Register = styled.div`
     
 `;
 
-export const Content =styled.div`
+export const LoginContent =styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -149,11 +149,10 @@ export const Content =styled.div`
     }
 `
 
-export const ContentRegister = styled(Content)`
+export const RegisterContent = styled(LoginContent)`
     width: 100%;
     color: #fff;
 
-   
 `;
 
 export const Input = styled.input`
